@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Never Stop Learning</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/welcome/in28Minutes" *ngIf="hardcodedAuthenticationService.isUserloggedIn()" class="nav-link">Home</a></li>
+        <li><a routerLink="listtodos" class="nav-link" *ngIf="hardcodedAuthenticationService.isUserloggedIn()">Todos</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">    
+        <li><a routerLink="/login" class="nav-link" *ngIf="!hardcodedAuthenticationService.isUserloggedIn()">Login</a></li>
+        <li><a routerLink="/logout" class="nav-link"  *ngIf="hardcodedAuthenticationService.isUserloggedIn()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+

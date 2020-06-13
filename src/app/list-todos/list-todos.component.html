@@ -1,0 +1,29 @@
+<h1>My Courses</h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <!-- <th>id</th> -->
+            <th>description</th>
+            <th>IsCompleted</th>
+            <th>Target date</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos">
+            <!-- <td>{{todo.id}}</td> -->
+            <td>{{todo.description}}</td>
+            <td>{{todo.isDone}}</td>
+            <td>{{todo.targetDate | date | uppercase }}</td>
+            <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+            <td><button (click)="updateTodo(todo.id)" class="btn btn-info">Update</button></td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="save()" class="btn btn-warning">Add Course</button>
+</div>

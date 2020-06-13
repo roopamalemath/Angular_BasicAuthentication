@@ -1,0 +1,23 @@
+<h1>Welcome</h1>
+
+<div class="container">
+    welcome {{username}} <a routerLink='/listtodos'>click here to see listodos</a>
+</div>
+
+<div class="container">
+    Click here to get a customized welcome message
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get welcome Message</button>
+</div>
+
+<div class="container">
+    <button (click)="getWelcomeMessageWithPathVariable()" class="btn btn-success">get Path variable</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    <h3>Your cutomized message is</h3>
+   {{welcomeMessageFromService}}
+</div>
+
+<div class="container" *ngIf="errorMessage">
+   <h4>{{errorMessage}}</h4>
+</div>
