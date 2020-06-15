@@ -45,7 +45,24 @@ export class LoginnComponent implements OnInit {
       error => {
         console.log(error)
         this.invalid = true
-      })
+      }
+      )
+  }
+
+  handleJwtAuth() {
+    //if(this.username==='roopa' && this.password==='roopa'){
+    this.basicAuthenticationService.executeJWT_AuthenticationService(this.username, this.password).subscribe(
+      response => {
+        console.log(response)
+        this.router.navigate(['welcome', this.username])
+        this.invalid = false
+      },
+
+      error => {
+        console.log(error)
+        this.invalid = true
+      }
+      )
   }
 
 

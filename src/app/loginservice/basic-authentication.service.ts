@@ -31,6 +31,28 @@ export class BasicAuthenticationService {
     }
   }*/
 
+
+
+  executeJWT_AuthenticationService(username, password) {
+     return this.httpClient.post<any>(`${API_URL}/authenticate`
+     , {username, password}
+          // if header is successful then continue with pipe method, 
+      // pipe method allows you to what should be done if the request succeeds or if the request fails 
+     ).pipe(
+        // if there is a proper response back then map it
+        map(
+          //when we get the data back sucessfully, we have set the username in sessionstorgae 
+          // return back the data back where this method is called (who ever subcribing to it will get the data)
+          data => {
+            sessionStorage.setItem(AUTHENTICATED_USER, username)
+            sessionStorage.setItem(TOKEN, `Bearer ${data.token}`)
+            return data
+          }
+        )
+      )
+  }
+
+
   // to valid the authentication ob both basic authentication and sessionstorage
   executeBasic_AuthenticationService(username, password) {
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password)
