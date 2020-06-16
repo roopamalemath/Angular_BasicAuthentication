@@ -33,7 +33,7 @@ export class TodoComponent implements OnInit {
     //console.log(this.todo.description)
     //console.log(this.todo.targetDate)
     // when it is new todo no do call the retrieve todo service to get the details of the given parameter
-    if (this.todo_id === -1) {
+    if (this.todo_id == -1) { // comparing primitives ==
       // create todo
       this.todoDataService.CreateTodo('in28Minutes', this.todo).subscribe(
         response => {
