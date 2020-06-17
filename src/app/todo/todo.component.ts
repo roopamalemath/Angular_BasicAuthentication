@@ -52,4 +52,10 @@ export class TodoComponent implements OnInit {
     }
   }
 
+  Cancel(){
+    console.log("canceling")
+    this.router.navigate(['listtodos'])
+
+  }
+
 }
